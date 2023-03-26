@@ -33,7 +33,8 @@ const store = createStore({
   },
   getters: {
     getProducts(state) {
-      return state.products.filter((pr) => pr.name.toLowerCase().includes(state.search.toLowerCase()));
+      const products = state.products.filter((pr) => pr.name.toLowerCase().includes(state.search.toLowerCase()));
+      return products.reverse();
     },
     getOneProduct(state) {
       return state.products.find((product) => product.id === state.productId);
