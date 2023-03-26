@@ -22,8 +22,10 @@
 <script setup>
 import { reactive } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 import Header from "../components/Header.vue";
 const store = useStore();
+const router = useRouter();
 
 const product = reactive({
   name: "",
@@ -34,6 +36,7 @@ const handleSubmit = () => {
   if (product.name.length > 0 && product.price != null && product.description.length > 0) {
     store.commit("addProduct", product);
 
+    router.push("/products")
     product.name = "";
     product.price = null;
     product.description = "";
