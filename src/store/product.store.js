@@ -37,7 +37,7 @@ const store = createStore({
       return products.reverse();
     },
     getOneProduct(state) {
-      return state.products.find((product) => product.id === state.productId);
+      return state.products.find((product) => product.id == state.productId);
     },
   },
   mutations: {
